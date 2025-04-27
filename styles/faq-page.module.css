@@ -1,0 +1,564 @@
+/* Main container styles */
+.faqContainer {
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    color: #f8f8f8;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Carbon fiber textures */
+.carbonTexture {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+            45deg,
+            rgba(30, 30, 30, 0.7) 0px,
+            rgba(30, 30, 30, 0.7) 1px,
+            rgba(10, 10, 10, 0.7) 1px,
+            rgba(10, 10, 10, 0.7) 3px
+    ),
+    repeating-linear-gradient(
+            -45deg,
+            rgba(30, 30, 30, 0.5) 0px,
+            rgba(30, 30, 30, 0.5) 1px,
+            rgba(10, 10, 10, 0.5) 1px,
+            rgba(10, 10, 10, 0.5) 3px
+    );
+    background-size: 4px 4px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.carbonTextureBlue {
+    background-image: repeating-linear-gradient(
+            45deg,
+            rgba(16, 42, 66, 0.7) 0px,
+            rgba(16, 42, 66, 0.7) 1px,
+            rgba(8, 21, 33, 0.7) 1px,
+            rgba(8, 21, 33, 0.7) 3px
+    ),
+    repeating-linear-gradient(
+            -45deg,
+            rgba(16, 42, 66, 0.5) 0px,
+            rgba(16, 42, 66, 0.5) 1px,
+            rgba(8, 21, 33, 0.5) 1px,
+            rgba(8, 21, 33, 0.5) 3px
+    );
+}
+
+/* Categories Section */
+.categoriesSection {
+    position: relative;
+    padding: 4rem 2rem;
+    z-index: 5;
+}
+
+.categoriesContent {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    perspective: 1000px;
+}
+
+.categoryCard {
+    position: relative;
+    height: 300px;
+    border-radius: 1rem;
+    overflow: hidden;
+    text-decoration: none;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.categoryCard:hover {
+    transform: perspective(1000px) rotateY(5deg) translateY(-10px);
+    z-index: 2;
+}
+
+.categoryCard[data-index="0"] {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(10, 10, 10, 0.9) 100%);
+}
+
+.categoryCard[data-index="1"] {
+    background: linear-gradient(135deg, rgba(16, 42, 66, 0.9) 0%, rgba(8, 21, 33, 0.9) 100%);
+}
+
+.categoryCard[data-index="2"] {
+    background: linear-gradient(135deg, rgba(66, 16, 16, 0.9) 0%, rgba(33, 8, 8, 0.9) 100%);
+}
+
+.categoryCard[data-index="3"] {
+    background: linear-gradient(135deg, rgba(66, 56, 16, 0.9) 0%, rgba(33, 28, 8, 0.9) 100%);
+}
+
+.categoryCard[data-index="4"] {
+    background: linear-gradient(135deg, rgba(16, 66, 33, 0.9) 0%, rgba(8, 33, 16, 0.9) 100%);
+}
+
+.categoryCardInner {
+    position: relative;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.categoryCard:hover .categoryCardInner {
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.categoryIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.categoryCard:hover .categoryIcon {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.categoryTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+
+.categoryDescription {
+    font-size: 0.875rem;
+    color: #a0a0a0;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.categoryStats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.categoryCount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffd700;
+}
+
+.categoryCountLabel {
+    font-size: 0.875rem;
+    color: #a0a0a0;
+}
+
+/* FAQ Section Styles */
+.faqSection {
+    position: relative;
+    padding: 6rem 2rem;
+    margin-top: 2rem;
+    z-index: 4;
+}
+
+.faqSection0 {
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+}
+
+.faqSection1 {
+    background: linear-gradient(135deg, rgba(8, 21, 33, 0.95) 0%, rgba(16, 42, 66, 0.95) 100%);
+}
+
+.faqSection2 {
+    background: linear-gradient(135deg, rgba(33, 8, 8, 0.95) 0%, rgba(66, 16, 16, 0.95) 100%);
+}
+
+.faqSection3 {
+    background: linear-gradient(135deg, rgba(33, 28, 8, 0.95) 0%, rgba(66, 56, 16, 0.95) 100%);
+}
+
+.faqSection4 {
+    background: linear-gradient(135deg, rgba(8, 33, 16, 0.95) 0%, rgba(16, 66, 33, 0.95) 100%);
+}
+
+.faqSectionContent {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faqSectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.faqSectionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 1rem;
+    color: #ffd700;
+    flex-shrink: 0;
+}
+
+.faqSectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.faqSectionDescription {
+    font-size: 1.125rem;
+    color: #a0a0a0;
+}
+
+.faqList {
+    margin-bottom: 2rem;
+}
+
+/* Accordion styles */
+.faqAccordion {
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.accordionItem {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordionItem:hover {
+    border-color: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.accordionTrigger {
+    width: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.questionWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.questionNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 50%;
+    color: #ffd700;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.accordionContent {
+    overflow: hidden;
+    font-size: 1rem;
+    color: #a0a0a0;
+    padding: 0 1.5rem 1.5rem 4.5rem;
+    line-height: 1.6;
+}
+
+.answerWrapper {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.faqSectionFooter {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.backToTopLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    color: #a0a0a0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.backToTopLink:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    border-color: rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Contact Card Section */
+.contactCardSection {
+    position: relative;
+    padding: 6rem 2rem;
+    z-index: 5;
+}
+
+.contactCardContent {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contactCard {
+    position: relative;
+    background: linear-gradient(135deg, rgba(8, 21, 33, 0.8) 0%, rgba(16, 42, 66, 0.8) 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 4rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: perspective(1000px) rotateX(-2deg);
+}
+
+.contactCardBackground {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.contactCardInner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contactIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    color: #ffd700;
+    position: relative;
+    overflow: hidden;
+}
+
+.contactIcon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px,
+            transparent 3px
+    ),
+    repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px,
+            transparent 3px
+    );
+    background-size: 4px 4px;
+    z-index: -1;
+}
+
+.contactTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.contactDescription {
+    font-size: 1.25rem;
+    color: #a0a0a0;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.contactButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.primaryButton {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(to right, #000000, #333333);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.secondaryButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.buttonIcon {
+    margin-left: 0.75rem;
+    transition: transform 0.3s ease;
+    width: 1rem;
+    height: 1rem;
+}
+
+.primaryButton:hover .buttonIcon,
+.secondaryButton:hover .buttonIcon {
+    transform: translateX(4px);
+}
+
+.floatingSearchTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #ffffff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.floatingSearchSubtitle {
+    font-size: 1.25rem;
+    color: #a0a0a0;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floatingSearchTitle {
+        font-size: 2.5rem;
+    }
+
+    .floatingSearchCardInner {
+        padding: 2rem;
+    }
+
+    .contactTitle {
+        font-size: 2.5rem;
+    }
+
+    .faqSectionHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .faqSectionTitle {
+        font-size: 2rem;
+    }
+
+    .contactButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .floatingSearchTitle {
+        font-size: 2rem;
+    }
+
+    .contactTitle {
+        font-size: 2rem;
+    }
+
+    .questionWrapper {
+        font-size: 1rem;
+    }
+
+    .accordionContent {
+        padding: 0 1rem 1rem 3.5rem;
+    }
+}
